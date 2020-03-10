@@ -10,7 +10,8 @@ public class BinanceWebSocketClient {
 
 	public static void main(String[] args) throws InterruptedException {
 		var client = new BinanceWebsocketClientListener();
-		HttpClient.newHttpClient().newWebSocketBuilder().buildAsync(URI.create(URL), client);
+		HttpClient.newHttpClient().newWebSocketBuilder()
+		        .buildAsync(URI.create(URL), client);
 		Thread.sleep(60_000);
 	}
 

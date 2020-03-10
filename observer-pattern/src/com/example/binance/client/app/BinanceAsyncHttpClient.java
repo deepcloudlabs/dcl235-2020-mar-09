@@ -15,17 +15,17 @@ public class BinanceAsyncHttpClient {
 		var client = HttpClient.newHttpClient();
 		var request = HttpRequest.newBuilder().uri(URI.create(URL)).header("Accept", "application/json").build();
 		var start = System.currentTimeMillis();
-		for (var i = 0; i < 10; ++i) {
+		for (var i = 0; i < 100; ++i) {
 			client.sendAsync(request, HttpResponse.BodyHandlers.ofString()).thenApply(HttpResponse::body)
 					.thenAccept(ticker -> {
 						int sequence = counter.incrementAndGet();
 						System.err.println(String.format("Response %d: %s", sequence, ticker));
-						if (sequence == 10) {
+						if (sequence == 100) {
 							var stop = System.currentTimeMillis();
 							System.out.println("Duration : " + (stop - start) + " ms.");
 						}
 					});
 		}
-		TimeUnit.SECONDS.sleep(10);
+		TimeUnit.SECONDS.sleep(100);
 	}
 }
