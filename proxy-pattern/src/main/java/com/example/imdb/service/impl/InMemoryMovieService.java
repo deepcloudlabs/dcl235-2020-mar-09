@@ -1451,9 +1451,9 @@ public class InMemoryMovieService implements MovieService {
 	}
 
 	@Override
-	@Cacheable(cacheNames = "movies",key = "#id")
+	@Cacheable(cacheNames = "movies", key = "#id")
 	public Movie findMovieById(int id) {
-		System.err.println("findMovieById("+id+") is working...");
+		System.err.println("findMovieById(" + id + ") is working...");
 		return movies.get(id);
 	}
 

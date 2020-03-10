@@ -9,8 +9,8 @@ import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
 
 
-//@Aspect
-//@Component
+@Aspect
+@Component
 public class ProfilerAspect {
 	private static Logger logger = Logger.getLogger(ProfilerAspect.class.getName());
 
@@ -19,7 +19,7 @@ public class ProfilerAspect {
 		return profile(pjp, profiler);
 	}
 
-	@Around("@target(profiler)")
+	@Around("@target(profiler) && execution(* com.example..*(..))")
 	public Object profileAllClassMethods(ProceedingJoinPoint pjp, Profiler profiler) throws Throwable {
 		return profile(pjp, profiler);
 	}
