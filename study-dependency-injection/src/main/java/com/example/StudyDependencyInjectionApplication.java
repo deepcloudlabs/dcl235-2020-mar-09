@@ -14,6 +14,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.example.service.Calculator;
 
 // -Dspring.profiles.active=prod
+@SuppressWarnings("unused")
 @SpringBootApplication
 public class StudyDependencyInjectionApplication implements ApplicationRunner {
 	
