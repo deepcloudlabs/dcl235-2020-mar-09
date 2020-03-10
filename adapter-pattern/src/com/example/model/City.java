@@ -10,7 +10,7 @@ import com.example.swing.Column;
  */
 @SuppressWarnings("serial")
 public class City implements Serializable {
-	@Column(name = "Id",order=1)
+	@Column(name = "Id",order=5)
 	private int ID;
 	@Column(name = "City Name",order=3)
 	private String Name;
@@ -18,7 +18,7 @@ public class City implements Serializable {
 	private String CountryCode;
 	@Column(name = "District",order=4)
 	private String District;
-	@Column(name = "Population",order=5)
+	@Column(name = "Population",order=1)
 	private int Population;
 
 	public City() {
