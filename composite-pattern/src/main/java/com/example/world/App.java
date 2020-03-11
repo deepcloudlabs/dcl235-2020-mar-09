@@ -24,13 +24,10 @@ public class App {
 		System.out.println(countryStats.getSurfaceArea());
 		System.out.println(countryStats.getPopulation());
 		System.out.println(countryStats.getGnp());
-		System.out.println(Arrays.asList(turkey));
-		System.out.println(Arrays.asList(ankara));
 		ObjectMapper mapper = new ObjectMapper();
 		String json = mapper.writeValueAsString(turkey);
 		System.out.println(json);
-		String jsonIn = "{\"code\":\"TUR\",\"name\":\"Turkey\",\"continent\":\"Asia\",\"capital\":{\"id\":1,\"name\":\"Ankara\",\"population\":4500000,\"gnp\":8000.0,\"surfaceArea\":100000.0},\"cities\":[1,{\"id\":2,\"name\":\"İstanbul\",\"population\":23500000,\"gnp\":9000.0,\"surfaceArea\":200000.0}],\"population\":28000000,\"surfaceArea\":300000.0,\"gnp\":17000.0}";
-		Country country = mapper.readValue(jsonIn, Country.class);
+		Country country = mapper.readValue(json, Country.class);
 		System.out.println(country);
 	}
 	public static double doDataAnalytics(List<Statistics> data) {

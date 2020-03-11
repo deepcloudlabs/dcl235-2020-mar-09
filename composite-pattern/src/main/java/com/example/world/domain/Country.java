@@ -3,19 +3,20 @@ package com.example.world.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "code")
+//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "code")
 public class Country implements Statistics {
 	private String code;
 	private String name;
 	private String continent;
-	@JsonManagedReference
-	private City capital;
+	private double surfaceArea;
+	private double gnp;
+	private int population;
 	@JsonManagedReference
 	private List<City> cities = new ArrayList<>();
+    @JsonManagedReference
+	private City capital;
 
 	public Country() {
 	}
@@ -64,6 +65,7 @@ public class Country implements Statistics {
 
 	public void setCapital(City capital) {
 		this.capital = capital;
+		this.capital.setCountry(this);
 	}
 
 	public int getPopulation() {
@@ -72,10 +74,23 @@ public class Country implements Statistics {
 
 	public void setCities(List<City> cities) {
 		this.cities = cities;
+		this.cities.forEach(city -> city.setCountry(this));
 	}
 
 	public List<City> getCities() {
 		return cities;
+	}
+
+	public void setSurfaceArea(double surfaceArea) {
+		this.surfaceArea = surfaceArea;
+	}
+
+	public void setGnp(double gnp) {
+		this.gnp = gnp;
+	}
+
+	public void setPopulation(int population) {
+		this.population = population;
 	}
 
 	@Override
@@ -106,7 +121,7 @@ public class Country implements Statistics {
 	@Override
 	public String toString() {
 		return "Country [code=" + code + ", name=" + name + ", continent=" + continent + ", surfaceArea="
-				+ getSurfaceArea() + ", population=" + getPopulation() + ", gnp=" + getGnp() + ", capital=" + capital
+				+ getSurfaceArea() + ", population=" + getPopulation() + ", gnp=" + getGnp() 
 				+ ", cities=" + cities + "]";
 	}
 
