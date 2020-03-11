@@ -6,13 +6,8 @@ import java.util.List;
 import com.example.world.domain.City;
 import com.example.world.domain.Country;
 import com.example.world.domain.Statistics;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-/**
- * Hello world!
- *
- */
 public class App {
 	public static void main(String[] args) throws Exception {
 		Country turkey = new Country("TUR", "Turkey", "Asia");
@@ -30,8 +25,8 @@ public class App {
 		Country country = mapper.readValue(json, Country.class);
 		System.out.println(country);
 	}
+
 	public static double doDataAnalytics(List<Statistics> data) {
-		return data.stream().mapToDouble(Statistics::getGnp).sum()
-				/ data.size();
+		return data.stream().mapToDouble(Statistics::getGnp).sum() / data.size();
 	}
 }

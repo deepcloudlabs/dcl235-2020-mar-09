@@ -8,7 +8,6 @@ import java.util.stream.IntStream;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
-import javax.inject.Singleton;
 
 @Named
 //@Singleton

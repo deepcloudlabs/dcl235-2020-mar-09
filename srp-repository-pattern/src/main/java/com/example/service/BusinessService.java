@@ -2,6 +2,7 @@ package com.example.service;
 
 import com.example.hr.repository.EmployeeRepository;
 // Hexagonal Architecture (Clean Architecture)
+@SuppressWarnings("unused")
 public class BusinessService {
 	private EmployeeRepository empRepo;
 

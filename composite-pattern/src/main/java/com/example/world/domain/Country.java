@@ -3,9 +3,12 @@ package com.example.world.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
-//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "code")
+@SuppressWarnings("unused")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "code")
 public class Country implements Statistics {
 	private String code;
 	private String name;
@@ -15,7 +18,7 @@ public class Country implements Statistics {
 	private int population;
 	@JsonManagedReference
 	private List<City> cities = new ArrayList<>();
-    @JsonManagedReference
+	@JsonManagedReference
 	private City capital;
 
 	public Country() {
@@ -121,8 +124,8 @@ public class Country implements Statistics {
 	@Override
 	public String toString() {
 		return "Country [code=" + code + ", name=" + name + ", continent=" + continent + ", surfaceArea="
-				+ getSurfaceArea() + ", population=" + getPopulation() + ", gnp=" + getGnp() 
-				+ ", cities=" + cities + "]";
+				+ getSurfaceArea() + ", population=" + getPopulation() + ", gnp=" + getGnp() + ", cities=" + cities
+				+ "]";
 	}
 
 }
