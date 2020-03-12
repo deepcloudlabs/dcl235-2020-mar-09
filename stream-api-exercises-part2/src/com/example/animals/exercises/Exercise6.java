@@ -2,6 +2,7 @@ package com.example.animals.exercises;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.example.animals.domain.Animal;
 import com.example.animals.domain.Cat;
@@ -15,9 +16,14 @@ import com.example.animals.domain.Spider;
  */
 public class Exercise6 {
 	public static void main(String[] args) {
-		// Group the animals by their number of legs
+		// Group the animals by their number of legs and count them
 		List<Animal> animals = Arrays.asList(new Cat(), new Spider(), new Cat("Tekir"), new Fish("Free Willy"),
 				new Spider(), new Fish("Jaws"));
-		
+		animals.stream()
+		    .collect(Collectors.groupingBy(Animal::getLegs,
+		    		    Collectors.counting()))
+		    .forEach( (leg,size) -> {
+		    	System.out.println(leg + ": "+size);
+		    } );   
 	}
 }
