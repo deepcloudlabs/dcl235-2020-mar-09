@@ -1,7 +1,5 @@
 package com.example;
 
-import java.util.concurrent.Future;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -15,9 +13,10 @@ import com.example.service.BusinessService;
 @EnableScheduling
 public class AsyncSpringBootApplication implements ApplicationRunner {
 
+	@SuppressWarnings("unused")
 	@Autowired
 	private BusinessService businessService;
-	
+
 	public static void main(String[] args) {
 		SpringApplication.run(AsyncSpringBootApplication.class, args);
 	}

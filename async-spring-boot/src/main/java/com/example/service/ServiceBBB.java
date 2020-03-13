@@ -1,7 +1,6 @@
 package com.example.service;
 
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,21 +11,22 @@ import com.example.event.Trade;
 
 @Service
 public class ServiceBBB {
-	@Autowired private ExecutorService threadPool;
+	@Autowired
+	private ExecutorService threadPool;
 
-	@EventListener 
+	@EventListener
 	public void listen(Trade trade) {
 		fun(trade);
 	}
-	
+
 	public void fun(final Trade trade) {
-		threadPool.submit( () -> {  
+		threadPool.submit(() -> {
 			try {
 				TimeUnit.SECONDS.sleep(5);
 			} catch (InterruptedException e) {
 				System.out.println(e.getSuppressed());
 			}
-			System.out.println("BBB is listening: "+trade);
+			System.out.println("BBB is listening: " + trade);
 		});
 	}
 }

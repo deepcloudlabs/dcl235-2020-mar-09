@@ -1,8 +1,5 @@
 package com.example;
 
-import java.math.BigInteger;
-import java.util.Collections;
-
 /**
  * 
  * @author Binnur Kurt <binnur.kurt@gmail.com>
@@ -10,6 +7,7 @@ import java.util.Collections;
  */
 public class ObjectCachingExample3 {
 	// -XX:AutoBoxCacheMax=1024
+	@SuppressWarnings("unused")
 	public static void main(String[] args) throws Exception {
 		Integer x = Integer.valueOf(42);
 		Integer y = 42;
@@ -17,7 +15,7 @@ public class ObjectCachingExample3 {
 		Integer v = 549;
 		System.err.println("x==y: " + (x == y));
 		System.err.println("u==v: " + (u == v));
-		Boolean b = Boolean.valueOf(true);	
+		Boolean b = Boolean.valueOf(true);
 	}
 
 }

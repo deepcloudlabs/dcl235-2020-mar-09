@@ -1,7 +1,6 @@
 package com.example.exercises;
 
 import java.util.Collection;
-import java.util.function.Predicate;
 
 import com.example.domain.Movie;
 import com.example.service.InMemoryMovieService;
@@ -12,15 +11,11 @@ public class FunctionaWay {
 
 	public static void main(String[] args) {
 		// Find the number of movies of each director
-        final Collection<Movie> movies = 
-        		movieService.findAllMovies();
-        long count = movies.stream()
-        		.parallel()
-        		.filter( FunctionaWay::is70s )
-        		.count();
+		final Collection<Movie> movies = movieService.findAllMovies();
+		long count = movies.stream().parallel().filter(FunctionaWay::is70s).count();
 //        		.mapToLong( movie -> 1)
 //        		.reduce( 0L , (s,i)->s+i);
-        System.out.println(count);
+		System.out.println(count);
 	}
 
 	static boolean is70s(Movie movie) {

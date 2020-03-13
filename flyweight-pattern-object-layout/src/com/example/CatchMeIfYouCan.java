@@ -3,7 +3,6 @@ package com.example;
 import java.io.Closeable;
 import java.io.IOException;
 
-@SuppressWarnings("finally")
 public class CatchMeIfYouCan {
 	public static int fun() {
 		try( // try with resources 

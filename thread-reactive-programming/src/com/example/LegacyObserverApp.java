@@ -1,6 +1,5 @@
 package com.example;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
@@ -8,6 +7,7 @@ import java.util.concurrent.TimeUnit;
 
 import com.example.event.TradeEvent;
 
+@SuppressWarnings("deprecation")
 public class LegacyObserverApp {
 
 	public static void main(String[] args) {
@@ -29,7 +29,7 @@ public class LegacyObserverApp {
 			@Override
 			public void update(Observable o, Object event) {
 				TradeEvent te = (TradeEvent) event;
-				volume += te.getPrice()*te.getQuantity();
+				volume += te.getPrice() * te.getQuantity();
 				System.err.println("Volume: " + volume);
 			}
 		};

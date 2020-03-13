@@ -2,6 +2,7 @@ package com.example;
 
 public class StudyObjectInitialization {
 
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		C c1 = new C();	
 		C c2 = new C(42);	

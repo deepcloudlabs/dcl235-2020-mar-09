@@ -54,6 +54,7 @@ class Point {
 }
 public class StudyVar {
 
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		var numbers = List.of(Integer.valueOf(4),8L, 15f, 16, 23, 42.);
 		// 15f -> Float

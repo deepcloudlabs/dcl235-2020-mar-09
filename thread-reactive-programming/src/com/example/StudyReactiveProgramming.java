@@ -10,6 +10,7 @@ import java.util.function.Consumer;
 import com.example.event.TradeEvent;
 
 public class StudyReactiveProgramming {
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		// Async Programming + Observable Pattern
 		SubmissionPublisher<TradeEvent> publisher = 

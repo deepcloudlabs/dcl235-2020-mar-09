@@ -1,6 +1,5 @@
 package com.example.hr.service;
 
-import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
