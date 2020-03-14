@@ -1,10 +1,15 @@
 package com.example.exercises;
 
-import java.util.Collection;
-
 import com.example.dao.InMemoryWorldDao;
 import com.example.dao.WorldDao;
 import com.example.domain.Country;
+
+import java.util.Collection;
+import java.util.Comparator;
+import java.util.function.Predicate;
+
+import static java.lang.System.out;
+import static java.util.Comparator.comparingDouble;
 
 /**
  * 
@@ -13,12 +18,17 @@ import com.example.domain.Country;
  */
 public class Exercise9 {
 	private static final WorldDao worldDao = InMemoryWorldDao.getInstance();
+	
+	private static final Comparator<Country> populationDensityComparator = comparingDouble(country -> country.getPopulation() / country.getSurfaceArea());
+	private static final Predicate<Country> livesNobody = country -> country.getPopulation() == 0L;
 
 	public static void main(String[] args) {
-		// Sort the countries by their population densities in descending order ignoring
-		// zero population countries
-		Collection<Country> countries = worldDao.findAllCountries();
-
+		// Sort the countries by their population densities in descending order ignoring zero population countries
+        Collection<Country> countries = worldDao.findAllCountries();
+        countries.stream()
+                 .filter(livesNobody.negate())
+                 .sorted(populationDensityComparator.reversed())
+                 .forEach(out::println);
 	}
 
 }
